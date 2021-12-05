@@ -44,7 +44,7 @@ Unauthorised use of this Application may give rise to a claim for damages and/or
                 <Text style={styles.tcP}>The use of this Application is subject to the following terms of use</Text>
             </ScrollView>
 
-            <TouchableOpacity disabled={ !this.state.accepted } onPress={ ()=> this.props.navigation.navigate('Login') } style={ this.state.accepted ? styles.button : styles.buttonDisabled }><Text style={styles.buttonLabel}>Accept</Text></TouchableOpacity>
+            <TouchableOpacity disabled={ !this.state.accepted } onPress={ ()=> this.props.navigation.navigate('Home') } style={ this.state.accepted ? styles.button : styles.buttonDisabled }><Text style={styles.buttonLabel}>Accept</Text></TouchableOpacity>
       </View>
       </SafeAreaView>
     );

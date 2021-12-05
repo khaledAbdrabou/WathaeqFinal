@@ -248,12 +248,15 @@ const DrawerNavigator = () => {
 
 
     <Drawer.Navigator
+    
       screenOptions={{
         headerShown: false,
         drawerActiveTintColor:Colors.secondary,
         
         
+        
       }}
+      initialRouteName='EUA'
       >
       <Drawer.Screen name="Home" component={Tabs} />
       <Drawer.Screen name="Camera" component={CameraTestS1} />
@@ -295,6 +298,8 @@ const RootStack = () => {
             }}
           >
             {storedCredentials ? (
+
+              
               <Stack.Screen
                 options={{
                   headerTintColor: "#ffff",
@@ -306,6 +311,7 @@ const RootStack = () => {
               <>
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="Signup" component={Signup} />
+                
               </>
             )}
           </Stack.Navigator>

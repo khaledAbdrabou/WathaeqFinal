@@ -6,7 +6,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { CredentialsContext } from '../components/Credentialscontext';
 import ImageModal from 'react-native-image-modal';
 
-export  function CameraTestS1() {
+export  function CameraTestS1({navigation}) {
   const [hasCameraPermission, setHasCameraPermission] = useState(null);
   const [hasGalleryPermission, setHasGalleryPermission] = useState(null);
   const [camera, setCamera] = useState(null);
@@ -103,6 +103,12 @@ return (
                         type={type} 
                         ratio={'1:1'}
                       >
+
+                  <Ionicons
+                      name="arrow-back-outline"
+                      style={{ color: "#fff", fontSize: 40, margin :20, marginVertical :40}}
+                      onPress= { () => navigation.navigate('Home') }
+                  />
               <View style={{flex:1, flexDirection:"row",margin:30,justifyContent:'space-between'}}>
                 <TouchableOpacity
                   style={{

@@ -162,7 +162,7 @@ const SettingsS = (props) => {
             />
 
       <View style={styles.menuWrapper}>
-        <TouchableRipple onPress={() => {}}>
+        <TouchableRipple onPress={() => navigation.navigate('faqs')          }>
           <View style={styles.menuItem}>
             <Icon name="help-circle-outline" color="#589D84" size={25}/>
             <Text style={styles.menuItemText}> FAQ's</Text>

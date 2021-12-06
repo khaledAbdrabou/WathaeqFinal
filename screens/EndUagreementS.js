@@ -83,7 +83,7 @@ const styles = {
   tcContainer: {
       marginTop: 15,
       marginBottom: 15,
-      height: height * .7
+      height: height * .77
   },
 
   button:{

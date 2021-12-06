@@ -152,7 +152,7 @@ useEffect(() => {
     <View style={styles.container}>
       <SwipeListView
 
-      data={documents}
+      data={Dummylist}
       renderItem={renderItem}
       renderHiddenItem={renderHiddenItem}
       leftOpenValue={75}

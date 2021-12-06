@@ -35,6 +35,7 @@ import PersonalInfoS from "../screens/PersonalInfo";
 import ProfileScreen from "../screens/NSettingS";
 import SearchS1 from "../screens/SearchS1";
 import { CameraTestS1 } from "../screens/CameraTestS1";
+import faqS from "../screens/FAQ";
 
 const { darkLight, brand, tertiary, secondary } = Colors;
 
@@ -102,6 +103,15 @@ const SettingSnavigator = () => (
       component={SettingsS}
       options={{
         title: "Settings",
+        headerTintColor: "#fff",
+     
+      }}
+    />
+    <Stack.Screen
+      name="faqs"
+      component={faqS}
+      options={{
+        title: "Frequently Asked Questions",
         headerTintColor: "#fff",
      
       }}

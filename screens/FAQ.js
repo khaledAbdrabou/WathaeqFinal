@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, FlatList, SafeAreaView,TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, FlatList, SafeAreaView,TouchableHighlight } from 'react-native';
 import { Constants, WebBrowser } from 'expo';
 import Dummylist from "../data/Dummylist";
 
@@ -41,7 +41,7 @@ const faqs = (props) => {
           data={Dummylist}
           keyExtractor={item => item.id}
           renderItem={({ item }) => (
-          <TouchableOpacity
+          <TouchableHighlight
             key={item.key}
        
           
@@ -49,7 +49,7 @@ const faqs = (props) => {
             <View style={styles.item}>
             <Text style={styles.list}> <Text style ={styles.boldingname}>{(item.title)}{"\n"}{"\n"} </Text>{(item.details)} </Text>
             </View>
-          </TouchableOpacity>
+          </TouchableHighlight>
       )}
     />
     

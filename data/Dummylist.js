@@ -11,8 +11,8 @@ export default Dummylist = [
     },
     {
         id: 3,
-        title: ' Who can access my documents on Wathaeq?',
-        details: ' Any party that you have given permission to can access specified documents. No one else can have access to your documents without your consent, not even us! Your documents will be secure using high level encryption and other security features such as biometrics, etc. to ensure your documents safety in Wathaeq.'
+        title: 'Who can access my documents on Wathaeq?',
+        details: 'Any party that you have given permission to can access specified documents. No one else can have access to your documents without your consent, not even us! Your documents will be secure using high level encryption and other security features such as biometrics, etc. to ensure your documents safety in Wathaeq.'
     },
     
 ];

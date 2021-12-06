@@ -47,7 +47,7 @@ const faqs = (props) => {
           
             style={{ borderRadius: 50}}>
             <View style={styles.item}>
-            <Text style={styles.list}> <Text style ={styles.boldingname}>{(item.title)}{"\n"}{"\n"} </Text>{(item.details)} </Text>
+            <Text style={styles.list}><Text style ={styles.boldingname}>{(item.title)}{"\n"}{"\n"}</Text>{(item.details)} </Text>
             </View>
           </TouchableHighlight>
       )}
@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
       padding: 20,
       alignSelf: 'auto',
       color:'#212b21',
+      
       
     },
   

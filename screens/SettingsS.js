@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
-import { StyleSheet, Text, View, Switch,SafeAreaView } from "react-native";
+import { StyleSheet, Text, View, Switch,SafeAreaView , TouchableOpacity} from "react-native";
 import CustomHeaderButton from "../components/CustomHeaderButton";
 import Colors from "../constants/Colors";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import { useDispatch } from "react-redux";
 import { setFilter } from "../store/actions/meals";
 import { Ionicons } from '@expo/vector-icons';
+import * as WebBrowser from 'expo-web-browser'
 import {
   Avatar,
   Title,
@@ -52,12 +53,18 @@ const SettingsS = (props) => {
       })
       .catch((error) => console.log(error));
   };
+
+  const _handlePressButtonAsync = async () => {
+    let result = await WebBrowser.openBrowserAsync('https://wathaeq.wixsite.com/wathaeq');
+    setResult(result);
+  };
   
 
 
   const [isNewupload, setisNewUpload] = useState(false);
   const [isUpcomingEvents, setisUpcomingEvents] = useState(false);
   const [isNewFamilyUpload, setisNewFamilyUpload] = useState(false);
+  const [result, setResult] = useState(null);
   const { navigation } = props;
   const dispatch = useDispatch();
   const setFilteHandler = (filters) => {
@@ -183,6 +190,10 @@ const SettingsS = (props) => {
         </TouchableRipple>
 
       </View>
+
+      <TouchableOpacity style={styles.panelButton} onPress={_handlePressButtonAsync} >
+        <Text style={styles.panelButtonTitle}>Visit Our website</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
@@ -266,4 +277,143 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 26,
   },
+
+  button: {
+    alignItems: "center",
+    backgroundColor: "#DDDDDD",
+    padding: 20,
+    margin:3
+  },
+  list:{
+    textTransform: 'uppercase', fontWeight: 'normal',
+    padding: 20,
+    alignSelf: 'auto',
+    color:'#212b21',
+    
+  },
+
+  boldingname:{
+    fontWeight: 'bold',
+    paddingLeft:0,
+    marginLeft:0,
+  },
+ 
+  item:{
+    backgroundColor:"#dee3de", 
+    alignSelf: 'auto',
+    margin:8,
+    marginLeft:20,
+    marginRight:20,
+    borderRadius: 10,
+  },
+  commandButton: {
+    padding: 15,
+    borderRadius: 10,
+    backgroundColor: '#FF6347',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  panel: {
+    padding: 20,
+    backgroundColor: '#FFFFFF',
+    paddingTop: 20,
+    // borderTopLeftRadius: 20,
+    // borderTopRightRadius: 20,
+    // shadowColor: '#000000',
+    // shadowOffset: {width: 0, height: 0},
+    // shadowRadius: 5,
+    // shadowOpacity: 0.4,
+  },
+  header: {
+    backgroundColor: '#FFFFFF',
+    shadowColor: '#333333',
+    shadowOffset: {width: -1, height: -3},
+    shadowRadius: 2,
+    shadowOpacity: 0.4,
+    // elevation: 5,
+    paddingTop: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+  panelHeader: {
+    alignItems: 'center',
+  },
+  panelHandle: {
+    width: 40,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: '#00000040',
+    marginBottom: 10,
+  },
+  panelTitle: {
+    fontSize: 27,
+    height: 35,
+  },
+  panelSubtitle: {
+    fontSize: 14,
+    color: 'gray',
+    height: 30,
+    marginBottom: 10,
+  },
+  inputbutton: {
+    padding: 13,
+    borderRadius: 10,
+    backgroundColor: '#ebebeb',
+    alignItems: 'center',
+    marginVertical: 17,
+    marginRight :20,
+    marginLeft :20,
+
+  },
+  panelButton: {
+    padding: 13,
+    borderRadius: 10,
+    backgroundColor: '#589D84',
+    alignItems: 'center',
+    marginVertical: 7,
+    marginRight :20,
+    marginLeft :20,
+  },
+  panelButtonTitle: {
+    fontSize: 17,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  action: {
+    flexDirection: 'row',
+    marginTop: 10,
+    marginBottom: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#f2f2f2',
+    paddingBottom: 5,
+  },
+  actionError: {
+    flexDirection: 'row',
+    marginTop: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#FF0000',
+    paddingBottom: 5,
+  },
+  textInput: {
+    flex: 1,
+    marginTop: Platform.OS === 'ios' ? 0 : -12,
+    paddingLeft: 10,
+    color: '#05375a',
+  },
+  appButtonContainer: {
+    elevation: 8,
+    backgroundColor: "#589D84",
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    margin:5,
+  },
+  appButtonText: {
+    fontSize: 18,
+    color: "#fff",
+    fontWeight: "bold",
+    alignSelf: "center",
+    textTransform: "uppercase"
+  },
+  
 });

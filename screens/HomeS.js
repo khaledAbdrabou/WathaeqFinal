@@ -1,5 +1,5 @@
 import React,{ useEffect, useState, useContext } from "react";
-import { FlatList, SafeAreaView, StyleSheet, TouchableOpacity, View, Text, Alert, textInput } from "react-native";
+import { FlatList, SafeAreaView, StyleSheet, TouchableOpacity, View, Text, Alert, textInput, Dimensions } from "react-native";
 // import Colors from "../constants/Colors";
 import FamilyGridTiles from "../components/FamilyGridTiles";
 import CustomHeaderButton from "../components/CustomHeaderButton";
@@ -13,6 +13,8 @@ import * as DocumentPicker from 'expo-document-picker';
 // credentials context
 import { CredentialsContext } from '../components/Credentialscontext';
 import { TextInput } from "react-native";
+import { useSafeAreaFrame } from 'react-native-safe-area-context';
+
 
 
 const s3 = new AWS.S3({
@@ -33,6 +35,7 @@ const makepretty = (item) => {
 
 
 
+
 const HomeS = (props) => {
   const [documents, setdocuments] = useState([{
     id:'',
@@ -40,11 +43,13 @@ const HomeS = (props) => {
     uri:'',
     date:'',
 }])
+const DEVICE_HEIGHT = Dimensions.get('screen').height;
 const { storedCredentials, setStoredCredentials } = useContext(CredentialsContext);
 const { email } = storedCredentials;
 const [ sharename, Setsharename ] = useState('');
 const [ doc, setDoc ] = useState();
 const [ selecteditems, setselecteditems ] = useState([]);
+
 
 
 
@@ -291,8 +296,8 @@ renderHeader = () => (
 
 
   return (
-    
     <SafeAreaView style={styles.screen}>
+    
     
     
     <BottomSheet
@@ -428,6 +433,7 @@ renderHeader = () => (
     />
 
     </SafeAreaView>
+  
   );
  
 };

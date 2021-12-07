@@ -118,6 +118,7 @@ const SettingsS = (props) => {
           <Avatar.Image 
             source={require('../assets/Pf.png')}
             size={80}
+            
           />
           <View style={{marginLeft: 20}}>
             <Title style={[styles.title, {
@@ -176,12 +177,7 @@ const SettingsS = (props) => {
           </View>
         </TouchableRipple>
       
-        <TouchableRipple >
-          <View style={styles.menuItem}>
-            <Icon name="note" color="#589D84" size={25}/>
-            <Text style={styles.menuItemText}>Terms & conditions</Text>
-          </View>
-        </TouchableRipple>
+       
         <TouchableRipple onPress={() => {}}>
           <View style={styles.menuItem}>
             <Icon name="account-check-outline" color="#589D84" size={25}/>

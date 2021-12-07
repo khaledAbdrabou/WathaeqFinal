@@ -92,7 +92,7 @@ const Schedule = (props) => {
           '2021-09-25': [{name: 'Doctor Visit'}, {name: 'Doctor : Dr. Ahmad'}]
         }}
         loadItemsForMonth={loadItems}
-        selected={'2021-09-26'}
+        selected={'2021-09-22'}
         renderItem={renderItem}
       />
     </View>

@@ -59,7 +59,7 @@ const searchdocs = () => {
       .then((responseJson) => {
         // setFilteredDataSource(responseJson);
        settext(responseJson);
-       console.log(responseJson);
+       
        
         
       })

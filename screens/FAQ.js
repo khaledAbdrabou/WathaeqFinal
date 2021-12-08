@@ -8,6 +8,7 @@ import Dummylist from "../data/Dummylist";
 const Visibleitem = props => {
     const{data} = props;
     return (
+      
     <View style={styles.rowFront}>
       <TouchableOpacity>
         <View>
@@ -32,10 +33,8 @@ const renderItem = (data, rowMap) =>{
 const faqs = (props) => {
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 1 }}>   
       <View style={styles.container}>
-     
-      
       <FlatList
           style={{width:'100%'}}
           data={Dummylist}
@@ -52,8 +51,6 @@ const faqs = (props) => {
           </TouchableHighlight>
       )}
     />
-    
-        
       </View>
     </SafeAreaView>
 
@@ -70,6 +67,11 @@ const styles = StyleSheet.create({
       justifyContent: "center",
       alignItems: "center",
     },
+    container:{
+      marginTop:17
+
+    },
+    
     overlay: {
       position: 'absolute',
       width: '90%',

@@ -30,6 +30,11 @@ const makepretty = (item) => {
   return(x[x.length - 1]);
 }
 
+const makepretty2 = (item) => {
+  let x = item.dateCreated.tostring().split('T')[0];
+  return(x);
+}
+
 
 
 
@@ -112,6 +117,9 @@ useEffect(() => {
   const url = 'http://api.sianet.me:8000/document/download/'+item._id;
   Linking.openURL(url).catch(err => console.error('Error', err));
   }
+
+
+
   const pickDocument = async () => {
     let result = await DocumentPicker.getDocumentAsync({ type: "*/*", copyToCacheDirectory: true }).then(response => {
         if (response.type == 'success') {          
@@ -131,6 +139,7 @@ useEffect(() => {
       console.log("Doc: " + doc);
       
 };
+
 const postDocument = () => {
   const url = "http://api.sianet.me:8000/document/uploadAWS";
   const url2= "http://api.sianet.me:8000/document/uploadDB"
@@ -164,6 +173,8 @@ const postDocument = () => {
     ]
   );
 };
+
+
 const handleonlongpress= (item) =>{
   if (selecteditems.includes(item._id)){
     const newlistitem = selecteditems.filter(itemId => itemId !== item._id)
@@ -188,9 +199,8 @@ const deletedocs = () =>  {
       body: JSON.stringify(data),
     });
   }
-  
-
 }
+
 const sharedocs = () => {
   for(const meow of selecteditems)
   {
@@ -345,8 +355,6 @@ renderHeader = () => (
            }}>Upload</Text> */}
               <Ionicons name="cloud-upload-outline" size={25} color="white"/>
       </TouchableOpacity>
-
-
       <TouchableOpacity
             onPress={() => bs1.current.snapTo(0) + bs.current.snapTo(1)}
             style={{ 
@@ -410,8 +418,6 @@ renderHeader = () => (
 
 
     </View>
-
-
           <FlatList
           style={{width:'95%'}}
           data={documents}
@@ -425,7 +431,7 @@ renderHeader = () => (
             //onLongPress= {() => console.log(item)}
             style={{ borderRadius: 50}}>
             <View style={styles.item}>
-            <Text style={styles.list}> <Text style ={styles.boldingname}>Name:</Text> {makepretty(item)} {"\n"}{"\n"}<Text style ={styles.boldingname}> Date Uploaded:</Text> {item.dateCreated}</Text>
+            <Text style={styles.list}> <Text style ={styles.boldingname}>Name:</Text> {makepretty(item)} {"\n"}{"\n"}<Text style ={styles.boldingname}> Date Uploaded:</Text> { item.dateCreated }</Text>
             </View>
           {  getselected(item) && <View style={styles.overlay}/>}
           </TouchableOpacity>

@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { TextInput } from "react-native";
 import { Linking } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
+import { CredentialsContext } from '../components/Credentialscontext';
 
 // import all the components we are going to use
 import { SafeAreaView, Text, StyleSheet, View, FlatList,TouchableOpacity } from 'react-native';
@@ -14,10 +15,7 @@ import { requestPermissionsAsync } from "expo-calendar";
 
 
 
-const makepretty = (item) => {
-  let x = item.name.split('wathaeqapp?');
-  return(x[x.length - 1]);
-}
+
 const makepretty2 = (item) => {
   let x = item.doc.split('wathaeqapp?');
   return(x[x.length - 1]);
@@ -42,6 +40,9 @@ const [text, settext] = useState([{
   doc:'',
   text:''
 }])
+
+const { storedCredentials, setStoredCredentials } = useContext(CredentialsContext);
+const { email } = storedCredentials;
 
 
 const searchdocs = () => {
@@ -95,8 +96,6 @@ const searchdocs = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
       <TextInput style={styles.inputbutton}
-      
-
       placeholder= ' Document Name Or Content '
       onChangeText = {(val) => Setsearchname(val)}
       />
@@ -120,9 +119,7 @@ const searchdocs = () => {
           </TouchableOpacity>
       )}
     />
-        
       </View>
-      
     </SafeAreaView>
   );
 };

@@ -187,9 +187,13 @@ const SettingsS = (props) => {
 
       </View>
 
-      <TouchableOpacity style={styles.panelButton} onPress={_handlePressButtonAsync} >
-        <Text style={styles.panelButtonTitle}>Visit Our website</Text>
-      </TouchableOpacity>
+      <TouchableRipple onPress={_handlePressButtonAsync}>
+          <View style={styles.menuItem}>
+          <Ionicons name="earth-outline" size={25} color="#589D84" />
+            <Text style={styles.menuItemText}>Visit our website</Text>
+          </View>
+        </TouchableRipple>
+
     </SafeAreaView>
   );
 };

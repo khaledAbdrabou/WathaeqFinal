@@ -280,10 +280,10 @@ renderHeader = () => (
       />
 
 
-      <TouchableOpacity style={styles.panelButton} onPress={() => sharedocs(selecteditems)} >
+      <TouchableOpacity style={styles.panelButton} onPress={() => sharedocs(selecteditems) + handleoutsidepress()} >
         <Text style={styles.panelButtonTitle}>Share Document</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.panelButton} onPress={() => stopsharedocs(selecteditems)}>
+      <TouchableOpacity style={styles.panelButton} onPress={() => stopsharedocs(selecteditems) + handleoutsidepress()}>
         <Text style={styles.panelButtonTitle}>Stop sharing Document</Text>
       </TouchableOpacity>
       {/* <TouchableOpacity

@@ -1,7 +1,7 @@
 
 import CustomHeaderButton from "../components/CustomHeaderButton";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { TextInput } from "react-native";
 import { Linking } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
@@ -21,8 +21,8 @@ const makepretty2 = (item) => {
   return(x[x.length - 1]);
 }
 
-const getawsitem = (item) => {
-  const url = 'http://api.sianet.me:8000/document/download/'+item._id;
+const getawsitem2 = (item) => {
+  const url = 'http://api.sianet.me:8000/document/download-text/'+item._id;
   Linking.openURL(url).catch(err => console.error('Error', err));
   }
 
@@ -46,7 +46,7 @@ const { email } = storedCredentials;
 
 
 const searchdocs = () => {
-    fetch('http://api.sianet.me:8000/document/search',{
+    fetch('http://api.sianet.me:8000/document/search/'+email,{
       method:'POST',
       headers: {
         Accept: 'application/json',
@@ -110,7 +110,7 @@ const searchdocs = () => {
           renderItem={({ item, index, separators }) => (
           <TouchableOpacity
             key={item.key}
-            onPress={() => getawsitem(item)}
+            onPress={() => getawsitem2(item)}
           
             style={{ borderRadius: 50}}>
             <View style={styles.item}>
